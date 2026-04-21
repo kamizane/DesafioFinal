@@ -2,61 +2,66 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
+import sqlite3
 
 # -----------------------------
 # Carregar dados do SQLite
 # -----------------------------
-import sqlite3
-
-conn = sqlite3.connect("ecommerce.db")
+conn = sqlite3.connect("./ecom_database.db")
 df = pd.read_sql("SELECT * FROM vendas", conn)
+conn.close()
 
 df["Data_Venda"] = pd.to_datetime(df["Data_Venda"])
 
 # -----------------------------
-# Faturamento diário (série temporal)
+# Faturamento mensal
 # -----------------------------
 df["Faturamento"] = df["Valor_Unitario"] * df["Quantidade"]
+df["AnoMes"] = df["Data_Venda"].dt.to_period("M")
 
 serie = (
-    df.groupby("Data_Venda")["Faturamento"]
+    df.groupby("AnoMes")["Faturamento"]
     .sum()
     .reset_index()
-    .sort_values("Data_Venda")
 )
 
-# -----------------------------
-# Transformar data em número (regressão precisa disso)
-# -----------------------------
-serie["Dia_Num"] = (serie["Data_Venda"] - serie["Data_Venda"].min()).dt.days
+serie["AnoMes"] = serie["AnoMes"].astype(str)
+serie["t"] = range(len(serie))
 
-X = serie[["Dia_Num"]]
+serie = serie[serie["Faturamento"] > 100000]
+# -----------------------------
+# Modelo
+# -----------------------------
+X = serie[["t"]]
 y = serie["Faturamento"]
 
-# -----------------------------
-# Treinar modelo
-# -----------------------------
 modelo = LinearRegression()
 modelo.fit(X, y)
 
 # -----------------------------
-# Prever próximos 30 dias
+# Prever próximos 3 meses
 # -----------------------------
-futuro = np.arange(serie["Dia_Num"].max()+1,
-                   serie["Dia_Num"].max()+31).reshape(-1,1)
-
+futuro = np.arange(serie["t"].max() + 1, serie["t"].max() + 4).reshape(-1, 1)
 previsao = modelo.predict(futuro)
 
-datas_futuras = pd.date_range(
-    serie["Data_Venda"].max() + pd.Timedelta(days=1),
-    periods=30
-)
+ultimo_periodo = pd.Period(serie["AnoMes"].iloc[-1], freq="M")
+datas_futuras = pd.period_range(
+    start=ultimo_periodo + 1,
+    periods=3,
+    freq="M"
+).astype(str)
 
 # -----------------------------
 # Plot
 # -----------------------------
-plt.figure(figsize=(12,6))
-plt.plot(serie["Data_Venda"], y)
-plt.plot(datas_futuras, previsao)
-plt.title("Previsão de Faturamento - Regressão Linear")
+plt.figure(figsize=(12, 6))
+plt.plot(serie["AnoMes"], y, marker="o", label="Faturamento Real")
+plt.plot(datas_futuras, previsao, marker="o", linestyle="--", label="Previsão")
+
+plt.xticks(rotation=45)
+plt.title("Previsão de Faturamento Mensal - Regressão Linear")
+plt.xlabel("Ano-Mês")
+plt.ylabel("Faturamento")
+plt.legend()
+plt.tight_layout()
 plt.show()
