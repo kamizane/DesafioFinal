@@ -85,12 +85,12 @@ df["Valor_Total"] = df["Valor_Total"].astype(float).round(2)
 
 # 4) SALVAR CSV TRATADO
 
-df.to_csv("ecom_data.csv", index=False)
+df.to_csv("./ecom_data.csv", index=False)
 print("CSV gerado com sucesso!")
 
 # 5) CARGA EM BANCO RELACIONAL (SQLite)
 
-conn = sqlite3.connect("ecom_database.db")
+conn = sqlite3.connect("./ecom_database.db")
 df.to_sql("vendas", conn, if_exists="replace", index=False)
 conn.close()
 
