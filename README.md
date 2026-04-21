@@ -1,4 +1,4 @@
-📊 Projeto de Análise de Dados — E-commerce
+# 📊 Projeto de Análise de Dados - E-commerce
 Este projeto simula um cenário real de análise de dados em um e-commerce, passando por todas as etapas de um pipeline de dados profissional:
 ETL → EDA/SQL → Dashboard → Modelo Preditivo → Storytelling
 O objetivo não é apenas gerar gráficos, mas extrair insights de negócio a partir dos dados.
