@@ -127,4 +127,5 @@ Scikit-learn
 
 
 ## ▶️ Como Executar o Projeto
-pip install -r requirements.txtstreamlit run sprint_3/dashboard.py
+pip install -r requirements.txt
+streamlit run sprint_3/dashboard.py
