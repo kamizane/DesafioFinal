@@ -94,7 +94,8 @@ O maior gargalo do negócio não é vender mais, mas reter melhor os clientes ex
 
 ## 🖥️ Dashboard Interativo
 O dashboard foi desenvolvido para permitir a exploração dinâmica dos dados através de filtros e visualizações claras dos KPIs do negócio.
-(Inserir aqui prints do dashboard)
+<img width="353" height="499" alt="image" src="https://github.com/user-attachments/assets/5adaaf5d-bb42-4c64-a59a-be18092e5098" />
+
 
 ## 🤖 Sprint 4 — Modelo Preditivo
 Foi implementado um modelo de Regressão Linear para prever o faturamento futuro com base no histórico de vendas ao longo do tempo.
