@@ -94,6 +94,7 @@ O maior gargalo do negócio não é vender mais, mas reter melhor os clientes ex
 
 ## 🖥️ Dashboard Interativo
 O dashboard foi desenvolvido para permitir a exploração dinâmica dos dados através de filtros e visualizações claras dos KPIs do negócio.
+
 <img width="560" height="404" alt="image" src="https://github.com/user-attachments/assets/d66e42f9-b03c-4ad0-8cc4-c0adbdb0acab" />
 
 
@@ -125,7 +126,15 @@ Streamlit
 
 Scikit-learn
 
+## 📊 Resultados Principais
 
+A análise dos dados de vendas do e-commerce permitiu identificar padrões relevantes de comportamento do negócio e oportunidades estratégicas.
+
+O faturamento apresentou comportamento relativamente estável ao longo do tempo, com variações mensais que indicam sazonalidade moderada.
+O ticket médio elevado sugere que os clientes realizam compras de maior valor, caracterizando um modelo com foco em qualidade de venda, e não volume.
+A análise de churn revelou que uma parcela significativa dos clientes não retorna após a primeira compra, indicando um desafio de retenção.
+A distribuição de faturamento por cidade mostrou um cenário equilibrado, com algumas regiões apresentando maior relevância, sugerindo oportunidades de ações regionais direcionadas.
+O modelo de regressão linear aplicado à série temporal mensal indicou uma tendência de estabilidade com leve queda, sugerindo possível estagnação do crescimento caso não sejam adotadas estratégias de retenção e engajamento.
 
 ## ▶️ Como Executar o Projeto
 pip install -r requirements.txt
