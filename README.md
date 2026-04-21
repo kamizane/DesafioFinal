@@ -102,6 +102,9 @@ O dashboard foi desenvolvido para permitir a exploração dinâmica dos dados at
 Foi implementado um modelo de Regressão Linear para prever o faturamento futuro com base no histórico de vendas ao longo do tempo.
 O modelo permite estimar tendências futuras e pode ser utilizado como apoio para planejamento estratégico.
 
+<img width="1200" height="600" alt="Figure_1" src="https://github.com/user-attachments/assets/e4f8f8f3-2e39-4fa7-b6ca-b38430720fa9" />
+
+
 ##  Conclusão
 Este projeto demonstra um fluxo completo de análise de dados aplicado a um cenário de e-commerce, desde a geração e tratamento dos dados até a extração de insights de negócio e construção de modelo preditivo.
 Mais do que gráficos, o projeto entrega inteligência de negócio orientada por dados.
