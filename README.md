@@ -139,4 +139,19 @@ O modelo de regressão linear aplicado à série temporal mensal indicou uma ten
 ## ▶️ Como Executar o Projeto
 pip install -r requirements.txt
 
+## ▶️ Como Executar
+
+### Sprint 1 — ETL
+python sprint_1/sprint_1.py
+
+### Sprint 2 — EDA
+python sprint_2/sprint2.py
+
+### Sprint 2 — SQL
+python sprint_2/sprint2_sql.py
+
+### Sprint 3 — Dashboard
 streamlit run sprint_3/dashboard.py
+
+### Sprint 4 — Modelo
+python sprint_4/modelo_previsao.py
