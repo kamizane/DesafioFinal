@@ -4,18 +4,14 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 import sqlite3
 
-# -----------------------------
-# Carregar dados do SQLite
-# -----------------------------
+
 conn = sqlite3.connect("./ecom_database.db")
 df = pd.read_sql("SELECT * FROM vendas", conn)
 conn.close()
 
 df["Data_Venda"] = pd.to_datetime(df["Data_Venda"])
 
-# -----------------------------
-# Faturamento mensal
-# -----------------------------
+
 df["Faturamento"] = df["Valor_Unitario"] * df["Quantidade"]
 df["AnoMes"] = df["Data_Venda"].dt.to_period("M")
 
@@ -29,18 +25,14 @@ serie["AnoMes"] = serie["AnoMes"].astype(str)
 serie["t"] = range(len(serie))
 
 serie = serie[serie["Faturamento"] > 100000]
-# -----------------------------
-# Modelo
-# -----------------------------
+
 X = serie[["t"]]
 y = serie["Faturamento"]
 
 modelo = LinearRegression()
 modelo.fit(X, y)
 
-# -----------------------------
-# Prever próximos 3 meses
-# -----------------------------
+
 futuro = np.arange(serie["t"].max() + 1, serie["t"].max() + 4).reshape(-1, 1)
 previsao = modelo.predict(futuro)
 
@@ -51,9 +43,7 @@ datas_futuras = pd.period_range(
     freq="M"
 ).astype(str)
 
-# -----------------------------
-# Plot
-# -----------------------------
+
 plt.figure(figsize=(12, 6))
 plt.plot(serie["AnoMes"], y, marker="o", label="Faturamento Real")
 plt.plot(datas_futuras, previsao, marker="o", linestyle="--", label="Previsão")
