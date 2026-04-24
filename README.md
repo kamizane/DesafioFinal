@@ -95,7 +95,8 @@ O maior gargalo do negócio não é vender mais, mas reter melhor os clientes ex
 ##  Dashboard Interativo
 O dashboard foi desenvolvido para permitir a exploração dinâmica dos dados através de filtros e visualizações claras dos KPIs do negócio.
 
-<img width="560" height="404" alt="image" src="https://github.com/user-attachments/assets/d66e42f9-b03c-4ad0-8cc4-c0adbdb0acab" />
+<img width="1913" height="920" alt="image" src="https://github.com/user-attachments/assets/acb2b7ba-f6f6-4b15-aa09-5ff676fe9478" />
+
 
 
 ##  Sprint 4 — Modelo Preditivo
@@ -140,8 +141,14 @@ A distribuição de faturamento por cidade mostrou um cenário equilibrado, com 
 O modelo de regressão linear aplicado à série temporal mensal indicou uma tendência de estabilidade com leve queda, sugerindo possível estagnação do crescimento caso não sejam adotadas estratégias de retenção e engajamento.
 
 ##  Como Executar o Projeto
+Primeiramente você deve realizar o download do repósitório e extrair os arquivos.
+<img width="1176" height="567" alt="image" src="https://github.com/user-attachments/assets/78d6eb70-c928-434f-a027-519898c0f83d" />
+
+Uma vez com os arquivos baixados e extraidos, acesse a pasta "DesafioFinal" a partir da sua IDE ou terminal. Dentro dela, execute o seguinte comando para instalar todas as bibliotecas utilizadas:
+
 pip install -r requirements.txt
 
+Uma vez com os requirements instalados, basta executar, nessa ordem, os comandos abaixo:
 
 ## Sprint 1 — ETL
 python sprint_1/sprint_1.py
